@@ -1,0 +1,35 @@
+#-----------------------------------------------------------
+# Vivado v2023.2.1 (64-bit)
+# SW Build 4081461 on Thu Dec 14 12:24:51 MST 2023
+# IP Build 4080415 on Thu Dec 14 21:01:57 MST 2023
+# SharedData Build 4077621 on Mon Dec 11 00:23:44 MST 2023
+# Start of session at: Tue Feb 20 09:17:46 2024
+# Process ID: 14220
+# Current directory: D:/Code/_repo/riscv/labs/CO_Lab0/MUX2T1_5
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent29396 D:\Code\_repo\riscv\labs\CO_Lab0\MUX2T1_5\MUX2T1_5.xpr
+# Log file: D:/Code/_repo/riscv/labs/CO_Lab0/MUX2T1_5/vivado.log
+# Journal file: D:/Code/_repo/riscv/labs/CO_Lab0/MUX2T1_5\vivado.jou
+# Running On: bowling-desktop, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 6, Host memory: 34127 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/Code/_repo/riscv/labs/CO_Lab0/MUX2T1_5/MUX2T1_5.xpr
+update_compile_order -fileset sources_1
+set_property {STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS} {} [get_runs synth_1]
+synth_design -top MUX2T1_5 -part xc7k160tffg676-2 -lint 
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+ipx::package_project -root_dir D:/Code/_repo/riscv/labs/ip_repo/MUX2T1_5_source -vendor xilinx.com -library user -taxonomy /UserIP -import_files -set_current false
+ipx::unload_core d:/Code/_repo/riscv/labs/ip_repo/MUX2T1_5_source/component.xml
+ipx::edit_ip_in_project -upgrade true -name tmp_edit_project -directory D:/Code/_repo/riscv/labs/ip_repo/MUX2T1_5_source d:/Code/_repo/riscv/labs/ip_repo/MUX2T1_5_source/component.xml
+update_compile_order -fileset sources_1
+set_property core_revision 2 [ipx::current_core]
+ipx::update_source_project_archive -component [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+ipx::move_temp_component_back -component [ipx::current_core]
+close_project -delete
+set_property  ip_repo_paths  d:/Code/_repo/riscv/labs/ip_repo/MUX2T1_5_source [current_project]
+update_ip_catalog
